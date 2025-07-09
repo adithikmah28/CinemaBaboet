@@ -1,4 +1,4 @@
-// stream-script.js (DENGAN AD-LOCK & DETAIL LENGKAP - FIXED)
+// stream-script.js (DENGAN AD-LOCK & DETAIL ELEGAN YANG DIKEMBALIKAN)
 document.addEventListener('DOMContentLoaded', () => {
     const streamContainer = document.getElementById('stream-container');
     const urlParams = new URLSearchParams(window.location.search);
@@ -33,7 +33,9 @@ document.addEventListener('DOMContentLoaded', () => {
         document.title = `Nonton ${contentData.title} | CinemaBaboet`;
         streamContainer.style.backgroundImage = `url('${contentData.poster_lg}')`;
         
-        // RENDER KONTEN DENGAN SEMUA DETAIL
+        // =========================================================================
+        // RENDER KONTEN DENGAN STRUKTUR HTML YANG BENAR DAN LENGKAP
+        // =========================================================================
         streamContainer.innerHTML = `
             <div id="content-wrapper"> <!-- Wrapper untuk dikunci -->
                 <div class="stream-content-area">
