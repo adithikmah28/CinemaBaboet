@@ -12,6 +12,7 @@ ul { list-style: none; }
 /* ======================================= */
 header { position: sticky; top: 0; z-index: 1000; background-color: var(--dark-color); display: flex; justify-content: space-between; align-items: center; padding: 20px 50px; }
 .header-left, .header-right { display: flex; align-items: center; }
+.menu-icon { font-size: 1.5rem; cursor: pointer; margin-right: 25px; display: none; }
 .brand-title { color: var(--primary-color); font-weight: 700; font-size: 2rem; letter-spacing: -1px; }
 .main-nav { margin-left: 40px; }
 .main-nav ul { display: flex; }
@@ -25,7 +26,20 @@ header { position: sticky; top: 0; z-index: 1000; background-color: var(--dark-c
 .search-btn-icon { background: none; border: none; color: var(--light-color); font-size: 1rem; cursor: pointer; padding-right: 10px; }
 
 /* ======================================= */
-/* 3. MAIN CONTENT & CATEGORY ROWS         */
+/* 3. MOBILE NAVIGATION & OVERLAY          */
+/* ======================================= */
+#overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.7); z-index: 1500; opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s; pointer-events: none; }
+#overlay.show { opacity: 1; visibility: visible; pointer-events: auto; }
+.mobile-nav { position: fixed; top: 0; left: 0; width: 280px; height: 100%; background-color: var(--dark-color); z-index: 2000; transform: translateX(-100%); transition: transform 0.3s ease-in-out; padding: 20px; }
+.mobile-nav.show { transform: translateX(0); }
+.mobile-nav-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; }
+.mobile-nav-header .brand-title { font-size: 1.5rem; }
+.close-icon { font-size: 1.5rem; cursor: pointer; }
+.mobile-nav ul li { margin-bottom: 25px; }
+.mobile-nav ul li a { font-size: 1.2rem; }
+
+/* ======================================= */
+/* 4. MAIN CONTENT & CATEGORY ROWS         */
 /* ======================================= */
 .main-content.no-hero { padding: 40px 50px; }
 .category-row { margin-bottom: 40px; }
@@ -39,7 +53,7 @@ header { position: sticky; top: 0; z-index: 1000; background-color: var(--dark-c
 .poster-container { -ms-overflow-style: none; scrollbar-width: none; }
 
 /* ======================================= */
-/* 4. POSTER CARD (JUDUL DI BAWAH)         */
+/* 5. POSTER CARD (JUDUL DI BAWAH)         */
 /* ======================================= */
 .poster-link { display: flex; flex-direction: column; margin-right: 15px; flex-shrink: 0; width: 160px; }
 .poster-card { position: relative; width: 100%; height: 240px; border-radius: 4px; overflow: hidden; background-color: #222; cursor: pointer; transition: transform 0.3s ease; margin-bottom: 10px; }
@@ -55,7 +69,7 @@ header { position: sticky; top: 0; z-index: 1000; background-color: var(--dark-c
 .quality-badge.cam { background-color: #dc3545; }
 
 /* ======================================= */
-/* 5. STREAM & SERIES PAGES (FIXED LAYOUT) */
+/* 6. STREAM & SERIES PAGES (FIXED LAYOUT) */
 /* ======================================= */
 .stream-page-body { background-color: #000; }
 .stream-header { background: transparent; position: absolute; top: 0; left: 0; width: 100%; z-index: 100; }
@@ -86,7 +100,7 @@ header { position: sticky; top: 0; z-index: 1000; background-color: var(--dark-c
 .loading-state, .error-state { position: relative; z-index: 5; display: flex; flex-direction: column; justify-content: center; align-items: center; height: calc(100vh - 100px); text-align: center; padding: 20px; }
 
 /* ======================================= */
-/* 6. CATEGORY PAGE & PAGINATION           */
+/* 7. CATEGORY PAGE & PAGINATION           */
 /* ======================================= */
 .back-to-home { font-size: 1.5rem; margin-right: 20px; color: var(--light-color); }
 .main-content.category-page { padding: 40px 50px; }
@@ -99,7 +113,7 @@ header { position: sticky; top: 0; z-index: 1000; background-color: var(--dark-c
 .page-btn.active { background-color: var(--primary-color); border-color: var(--primary-color); cursor: default; }
 
 /* ======================================= */
-/* 7. MODAL & CONTENT LOCK (AD-LOCK)       */
+/* 8. MODAL & CONTENT LOCK (AD-LOCK)       */
 /* ======================================= */
 .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); z-index: 1500; opacity: 0; visibility: hidden; transition: opacity 0.3s; }
 .modal-overlay.show { opacity: 1; visibility: visible; }
@@ -114,12 +128,13 @@ header { position: sticky; top: 0; z-index: 1000; background-color: var(--dark-c
 .content-locked { filter: blur(8px); -webkit-filter: blur(8px); pointer-events: none; user-select: none; transition: filter 0.3s ease; }
 
 /* ======================================= */
-/* 8. FOOTER & RESPONSIVE                  */
+/* 9. FOOTER & RESPONSIVE                  */
 /* ======================================= */
 footer { text-align: center; padding: 30px 50px; margin-top: 50px; border-top: 1px solid #333; color: var(--gray-color); }
 @media (max-width: 768px) {
     header, .main-content.no-hero, .main-content.category-page { padding-left: 20px; padding-right: 20px; }
     .main-nav { display: none; }
+    .menu-icon { display: block; }
     .brand-title { font-size: 1.5rem; }
     .search-bar input { width: 150px; }
     .poster-link { width: 130px; }
