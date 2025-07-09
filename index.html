@@ -4,24 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CinemaBaboet - Nonton Film & Series</title>
-    
-    <!-- Link ke CSS -->
     <link rel="stylesheet" href="style.css">
-    
-    <!-- Link ke Google Fonts (untuk tampilan elegan) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Link ke Font Awesome (untuk ikon) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 </head>
 <body>
 
+    <!-- Overlay untuk background saat menu mobile aktif -->
+    <div id="overlay"></div>
+
+    <!-- Mobile Navigation (awalnya tersembunyi) -->
+    <div class="mobile-nav" id="mobile-nav">
+        <div class="mobile-nav-header">
+            <h1 class="brand-title">CinemaBaboet</h1>
+            <i class="fas fa-times close-icon" id="close-menu-btn"></i>
+        </div>
+        <ul>
+            <li><a href="#">Movie</a></li>
+            <li><a href="#">Series</a></li>
+            <li><a href="#">Indonesia</a></li>
+        </ul>
+    </div>
+
     <!-- HEADER / NAVIGATION BAR -->
     <header>
         <div class="header-left">
-            <i class="fas fa-bars menu-icon"></i>
+            <i class="fas fa-bars menu-icon" id="open-menu-btn"></i>
             <h1 class="brand-title">CinemaBaboet</h1>
             <nav class="main-nav">
                 <ul>
@@ -39,50 +49,36 @@
         </div>
     </header>
 
-    <!-- HERO SECTION (FILM UNGGULAN) -->
-    <section class="hero-section">
+    <!-- HERO SECTION (FILM UNGGULAN DINAMIS) -->
+    <section class="hero-section" id="hero-section">
         <div class="hero-content">
-            <h2 class="hero-title">Oppenheimer</h2>
-            <p class="hero-description">Kisah fisikawan teoretis Amerika J. Robert Oppenheimer, direktur Laboratorium Los Alamos selama Proyek Manhattan, dan kontribusinya dalam penciptaan bom atom.</p>
-            <div class="hero-buttons">
-                <button class="btn btn-play"><i class="fas fa-play"></i> Putar</button>
-                <button class="btn btn-info"><i class="fas fa-info-circle"></i> Info Lainnya</button>
-            </div>
+            <!-- Konten ini akan diisi oleh JavaScript -->
+            <h2 class="hero-title" id="hero-title"></h2>
+            <p class="hero-description" id="hero-description"></p>
+            <div class="hero-buttons" id="hero-buttons-container"></div>
         </div>
     </section>
 
     <!-- MAIN CONTENT (DAFTAR FILM) -->
     <main class="main-content">
-        <!-- Kategori 1: Originals -->
         <section class="category-row">
             <h2>CinemaBaboet Originals</h2>
-            <div class="poster-container" id="originals-container">
-                <!-- Poster film akan dimuat di sini oleh JavaScript -->
-            </div>
+            <div class="poster-container" id="originals-container"></div>
         </section>
 
-        <!-- Kategori 2: Movie Populer -->
         <section class="category-row">
             <h2>Movie Populer</h2>
-            <div class="poster-container" id="movie-container">
-                <!-- Poster film akan dimuat di sini oleh JavaScript -->
-            </div>
+            <div class="poster-container" id="movie-container"></div>
         </section>
         
-        <!-- Kategori 3: Series Populer -->
         <section class="category-row">
             <h2>Series Populer</h2>
-            <div class="poster-container" id="series-container">
-                <!-- Poster film akan dimuat di sini oleh JavaScript -->
-            </div>
+            <div class="poster-container" id="series-container"></div>
         </section>
         
-        <!-- Kategori 4: Film Indonesia -->
         <section class="category-row">
             <h2>Film Indonesia</h2>
-            <div class="poster-container" id="indonesia-container">
-                <!-- Poster film akan dimuat di sini oleh JavaScript -->
-            </div>
+            <div class="poster-container" id="indonesia-container"></div>
         </section>
     </main>
 
@@ -91,9 +87,7 @@
         <p>© 2024 CinemaBaboet. Dibuat dengan cinta untuk para baboeters.</p>
     </footer>
 
-    <!-- PENTING: Link ke file data dan script di paling bawah -->
     <script src="data.js"></script>
     <script src="script.js"></script>
-
 </body>
 </html>
