@@ -1,4 +1,4 @@
-// series_script.js (THE REAL FINAL BOSS FIXED VERSION)
+// series_script.js (FIXED - DENGAN PENGECEKAN KEAMANAN GANDA)
 document.addEventListener('DOMContentLoaded', () => {
     // GABUNGKAN SEMUA DATA MENJADI SATU
     const allContent = [...movieData, ...seriesData, ...indonesiaData, ...animeData];
@@ -27,9 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const renderSeriesPage = (data) => {
-        // =================================================================
-        // THE REAL FIX: Tambahkan pengecekan keamanan untuk setiap data
-        // =================================================================
         streamContainer.innerHTML = `
             <div id="content-wrapper">
                 <div class="stream-content-area">
@@ -41,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div class="episode-selector" id="episode-selector"></div>
                     </div>
                     <div class="info-container">
-                        <h1 class="movie-title">${data.title || 'Judul Tidak Tersedia'}</h1>
+                        <h1 class="movie-title">${data.title}</h1>
                         <div class="genre-tags">
                             ${(data.genre && Array.isArray(data.genre)) ? data.genre.map(g => `<span class="tag genre">${g}</span>`).join('') : ''}
                         </div>
@@ -62,32 +59,34 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const setupSelectors = (seasons) => {
+        const episodeNav = document.querySelector('.episode-navigation');
+        const videoPlayer = document.getElementById('video-player');
+
+        // Pengecekan keamanan pertama: Jika tidak ada data 'seasons' sama sekali
         if (!seasons || seasons.length === 0) {
-            const episodeNav = document.querySelector('.episode-navigation');
             if (episodeNav) episodeNav.innerHTML = '<p>Data episode belum tersedia.</p>';
-            const videoPlayer = document.getElementById('video-player');
-            if(videoPlayer) videoPlayer.src = '';
+            if (videoPlayer) videoPlayer.src = '';
             return;
         }
 
         const seasonSelector = document.getElementById('season-selector');
         const episodeSelector = document.getElementById('episode-selector');
-        const videoPlayer = document.getElementById('video-player');
         
         seasonSelector.innerHTML = seasons.map((season, i) => `<button class="season-btn ${i === 0 ? 'active' : ''}" data-season-index="${i}">Season ${season.season_number}</button>`).join('');
         
         const renderEpisodes = (seasonIndex) => {
-            const episodes = seasons[seasonIndex].episodes;
-            if (!episodes || episodes.length === 0) {
-                episodeSelector.innerHTML = '<p>Episode untuk season ini belum tersedia.</p>';
-                videoPlayer.src = '';
-                return;
-            }
-            episodeSelector.innerHTML = episodes.map((ep, i) => `<button class="episode-box ${i === 0 ? 'active' : ''}" data-episode-index="${i}">${ep.episode_number}</button>`).join('');
+            const currentSeason = seasons[seasonIndex];
             
-            if (episodes.length > 0) {
-                videoPlayer.src = episodes[0].iframeSrc;
+            // Pengecekan keamanan kedua (THE REAL FIX): Jika season ada, tapi list episodenya kosong atau tidak ada
+            if (!currentSeason || !currentSeason.episodes || currentSeason.episodes.length === 0) {
+                episodeSelector.innerHTML = '<p>Episode untuk season ini belum tersedia.</p>';
+                if (videoPlayer) videoPlayer.src = '';
+                return; 
             }
+
+            const episodes = currentSeason.episodes;
+            episodeSelector.innerHTML = episodes.map((ep, i) => `<button class="episode-box ${i === 0 ? 'active' : ''}" data-episode-index="${i}">${ep.episode_number}</button>`).join('');
+            videoPlayer.src = episodes[0].iframeSrc;
             addEpisodeClickListeners(seasonIndex);
         };
 
