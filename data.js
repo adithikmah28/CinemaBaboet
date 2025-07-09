@@ -54,7 +54,7 @@ const allContent = [
         ]
     },
     {
-        id: 9,
+        id: 2,
         title: 'Oppenheimer',
         year: '2023',
         category: 'movie',
@@ -84,5 +84,21 @@ const allContent = [
         director: 'Hadrah Daeng Ratu',
         subtitle: 'Indonesia',
         iframeSrc: 'https://vidlink.pro/movie/1223799'
+    },
+    {
+        id: 4,
+        title: 'Perempuan Tanah Jahanam',
+        year: '2019',
+        category: 'indonesia',
+        quality: 'HD',
+        rating: 6.7,
+        genre: ['Horror', 'Mystery', 'Thriller'], // <-- GENRE DITAMBAHKAN
+        poster: 'https://image.tmdb.org/t/p/original/tAYHRuKxNa4arD32YTmDT1j46Mi.jpg',
+        poster_lg: 'https://image.tmdb.org/t/p/original/tAYHRuKxNa4arD32YTmDT1j46Mi.jpg',
+        synopsis: 'Seorang operator pintu tol pergi ke kampung leluhurnya dengan harapan mendapatkan harta warisan, hingga akhirnya ia menemukan fakta yang meresahkan tentang masa lalunya.',
+        cast: ['Tara Basro', 'Marissa Anita', 'Asmara Abigail'],
+        director: 'Joko Anwar',
+        subtitle: 'Indonesia',
+        iframeSrc: 'https://vidlink.pro/movie/572468'
     }
 ];
