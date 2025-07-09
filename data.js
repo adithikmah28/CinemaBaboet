@@ -147,6 +147,6 @@ const allContent = [
         cast: ['Iqbaal Ramadhan', 'Angga Yunanda', 'Aghniny Haque'],
         director: 'Angga Dwimas Sasongko',
         subtitle: 'Indonesia',
-        iframeSrc: 'https://vidsrc.icu/embed/movie/832544'
+        iframeSrc: 'https://vidsrc.pm/embed/movie?tmdb=832544'
     }
 ];
