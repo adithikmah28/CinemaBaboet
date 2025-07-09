@@ -28,21 +28,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- LOGIKA UNTUK MEMBUAT KARTU POSTER ---
     const createPosterCard = (content) => {
-        const qualityClass = content.quality.toLowerCase();
-        return `
-            <a href="stream.html?id=${content.id}" class="poster-link">
-                <div class="poster-card">
-                    <img src="${content.poster}" alt="${content.title}">
-                    <div class="poster-badge rating-badge"><i class="fas fa-star"></i><span>${content.rating}</span></div>
-                    <div class="poster-badge quality-badge ${qualityClass}">${content.quality}</div>
-                    <div class="overlay">
-                        <i class="fas fa-play-circle play-icon"></i>
-                        <h3>${content.title}</h3>
-                    </div>
+    // MENENTUKAN HALAMAN TUJUAN BERDASARKAN KATEGORI
+    const streamPage = content.category === 'series' ? 'series_stream.html' : 'stream.html';
+    
+    const qualityClass = content.quality.toLowerCase();
+    return `
+        <a href="${streamPage}?id=${content.id}" class="poster-link">
+            <div class="poster-card">
+                <img src="${content.poster}" alt="${content.title}">
+                <div class="poster-badge rating-badge"><i class="fas fa-star"></i><span>${content.rating}</span></div>
+                <div class="poster-badge quality-badge ${qualityClass}">${content.quality}</div>
+                <div class="overlay">
+                    <i class="fas fa-play-circle play-icon"></i>
+                    <h3>${content.title}</h3>
                 </div>
-            </a>
-        `;
-    };
+            </div>
+        </a>
+    `;
+};
 
     // --- LOGIKA UNTUK MEMUAT KATEGORI DENGAN LIMIT (DIPERBARUI) ---
     const populateCategory = (containerId, filterFunction, limit = 10) => {
