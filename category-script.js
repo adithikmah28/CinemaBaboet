@@ -1,7 +1,8 @@
-// GABUNGKAN SEMUA DATA MENJADI SATU
-const allContent = [...movieData, ...seriesData, ...indonesiaData, ...animeData];
-
+// category-script.js (FIXED)
 document.addEventListener('DOMContentLoaded', () => {
+    // THE REAL FIX: Pindahkan 'allContent' ke dalam DOMContentLoaded
+    const allContent = [...movieData, ...seriesData, ...indonesiaData, ...animeData];
+    
     // --- FUNGSI UNTUK MEMBUAT KARTU POSTER ---
     const createPosterCard = (content) => {
         const streamPage = content.category === 'series' || content.category === 'anime' ? 'series_stream.html' : 'stream.html';
@@ -57,7 +58,6 @@ document.addEventListener('DOMContentLoaded', () => {
         paginationContainer.innerHTML = paginationHTML;
     }
     
-    // Aktifkan form pencarian
     const searchForm = document.getElementById('search-form-category');
     const searchInput = document.getElementById('search-input-category');
     if(searchForm){
