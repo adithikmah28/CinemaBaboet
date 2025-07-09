@@ -1,4 +1,3 @@
-// DATABASE ULTIMATE - Dengan data yang 100% LENGKAP untuk setiap entri
 const allContent = [
     {
         id: 1,
@@ -9,7 +8,7 @@ const allContent = [
         rating: 8.5,
         poster: 'https://m.media-amazon.com/images/M/MV5BN2RjZGVkNDItN2I3NC00YjVjLWIyYTUtZDE4NTA2MGMzODc4XkEyXkFqcGdeQXVyMTEzNDY2ODE5._V1_FMjpg_UX1000_.jpg',
         poster_lg: 'https://m.media-amazon.com/images/M/MV5BN2RjZGVkNDItN2I3NC00YjVjLWIyYTUtZDE4NTA2MGMzODc4XkEyXkFqcGdeQXVyMTEzNDY2ODE5._V1_FMjpg_UX1000_.jpg',
-        synopsis: 'Kisah Dasiyah, seorang wanita visioner yang gemar meracik saus rokok kretek, berlatar belakang industri tembakau di Indonesia pada tahun 1960-an.',
+        synopsis: 'Kisah Dasiyah, seorang wanita visioner yang gemar meracik saus rokok kretek, berlatar belakang industri tembakau di Indonesia.',
         cast: ['Dian Sastrowardoyo', 'Ario Bayu', 'Putri Marino'],
         director: 'Kamila Andini, Ifa Isfansyah',
         seasons: [
