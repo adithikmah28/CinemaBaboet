@@ -1,9 +1,6 @@
-// script.js (FIXED)
 document.addEventListener('DOMContentLoaded', () => {
-    // THE REAL FIX: Pindahkan 'allContent' ke dalam DOMContentLoaded
-    const allContent = [...movieData, ...seriesData, ...indonesiaData, ...animeData];
+    const allContent = [...movieData, ...seriesData, ...indonesiaData];
 
-    // --- LOGIKA UNTUK MENU MOBILE & OVERLAY ---
     const openMenuBtn = document.getElementById('open-menu-btn');
     const closeMenuBtn = document.getElementById('close-menu-btn');
     const mobileNav = document.getElementById('mobile-nav');
@@ -16,7 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
         overlay.addEventListener('click', closeMenu);
     }
 
-    // --- LOGIKA UNTUK SEARCH BAR DI HALAMAN UTAMA ---
     const searchForm = document.getElementById('search-form');
     const searchInput = document.getElementById('search-input');
     if(searchForm) {
@@ -27,9 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- FUNGSI UNTUK MEMBUAT KARTU POSTER ---
     const createPosterCard = (content) => {
-        const streamPage = content.category === 'series' || content.category === 'anime' ? 'series_stream.html' : 'stream.html';
+        const streamPage = content.category === 'series' ? 'series_stream.html' : 'stream.html';
         const qualityClass = content.quality.toLowerCase();
         return `
             <a href="${streamPage}?id=${content.id}" class="poster-link">
@@ -43,7 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
     };
 
-    // --- FUNGSI UNTUK MEMUAT KATEGORI ---
     const populateCategory = (containerId, filterFunction, limit = 10) => {
         const container = document.getElementById(containerId);
         if (!container) return;
@@ -51,9 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
         container.innerHTML = filteredContent.map(createPosterCard).join('');
     };
 
-    // --- EKSEKUSI SEMUA FUNGSI ---
     populateCategory('movie-container', item => item.category === 'movie', 10);
     populateCategory('series-container', item => item.category === 'series', 10);
     populateCategory('indonesia-container', item => item.category === 'indonesia', 10);
-    populateCategory('anime-container', item => item.category === 'anime', 10);
 });
