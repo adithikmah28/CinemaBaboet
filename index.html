@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CinemaBaboet - Nonton Film & Series</title>
+    
+    <!-- Link ke CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Link ke Google Fonts (untuk tampilan elegan) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Link ke Font Awesome (untuk ikon) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+</head>
+<body>
+
+    <!-- HEADER / NAVIGATION BAR -->
+    <header>
+        <div class="header-left">
+            <i class="fas fa-bars menu-icon"></i>
+            <h1 class="brand-title">CinemaBaboet</h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#" class="nav-link active">Movie</a></li>
+                    <li><a href="#" class="nav-link">Series</a></li>
+                    <li><a href="#" class="nav-link">Indonesia</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="header-right">
+            <div class="search-bar">
+                <input type="text" placeholder="Cari judul...">
+                <i class="fas fa-search search-icon"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION (FILM UNGGULAN) -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h2 class="hero-title">Oppenheimer</h2>
+            <p class="hero-description">Kisah fisikawan teoretis Amerika J. Robert Oppenheimer, direktur Laboratorium Los Alamos selama Proyek Manhattan, dan kontribusinya dalam penciptaan bom atom.</p>
+            <div class="hero-buttons">
+                <button class="btn btn-play"><i class="fas fa-play"></i> Putar</button>
+                <button class="btn btn-info"><i class="fas fa-info-circle"></i> Info Lainnya</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT (DAFTAR FILM) -->
+    <main class="main-content">
+        <!-- Kategori 1: Originals -->
+        <section class="category-row">
+            <h2>CinemaBaboet Originals</h2>
+            <div class="poster-container" id="originals-container">
+                <!-- Poster film akan dimuat di sini oleh JavaScript -->
+            </div>
+        </section>
+
+        <!-- Kategori 2: Movie Populer -->
+        <section class="category-row">
+            <h2>Movie Populer</h2>
+            <div class="poster-container" id="movie-container">
+                <!-- Poster film akan dimuat di sini oleh JavaScript -->
+            </div>
+        </section>
+        
+        <!-- Kategori 3: Series Populer -->
+        <section class="category-row">
+            <h2>Series Populer</h2>
+            <div class="poster-container" id="series-container">
+                <!-- Poster film akan dimuat di sini oleh JavaScript -->
+            </div>
+        </section>
+        
+        <!-- Kategori 4: Film Indonesia -->
+        <section class="category-row">
+            <h2>Film Indonesia</h2>
+            <div class="poster-container" id="indonesia-container">
+                <!-- Poster film akan dimuat di sini oleh JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2024 CinemaBaboet. Dibuat dengan cinta untuk para baboeters.</p>
+    </footer>
+
+    <!-- PENTING: Link ke file data dan script di paling bawah -->
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
