@@ -59,7 +59,7 @@ header { position: sticky; top: 0; z-index: 1000; background-color: var(--dark-c
 .poster-card { position: relative; width: 100%; height: 240px; border-radius: 4px; overflow: hidden; background-color: #222; cursor: pointer; transition: transform 0.3s ease; margin-bottom: 10px; }
 .poster-card img { width: 100%; height: 100%; object-fit: cover; }
 .poster-link:hover .poster-card { transform: scale(1.05); }
-.poster-title { font-size: 0.9rem; font-weight: 500; line-height: 1.4; height: 40px; overflow: hidden; color: #e5e5e5; }
+.poster-title { font-size: 0.9rem; font-weight: 500; line-height: 1.4; height: 40px; overflow: hidden; color: #e5e5e5; text-align: center; }
 .poster-badge { position: absolute; top: 8px; padding: 4px 8px; font-size: 0.75rem; font-weight: 600; border-radius: 4px; color: #fff; text-shadow: 1px 1px 2px rgba(0,0,0,0.7); }
 .rating-badge { left: 8px; background: rgba(0,0,0,0.6); display: flex; align-items: center; }
 .rating-badge .fa-star { color: #f5c518; margin-right: 4px; font-size: 0.7rem; }
@@ -82,7 +82,6 @@ header { position: sticky; top: 0; z-index: 1000; background-color: var(--dark-c
 .movie-title { font-size: 2.5rem; font-weight: 700; margin-bottom: 15px; }
 .meta-tags { display: flex; gap: 15px; margin-bottom: 25px; flex-wrap: wrap; }
 .tag { background-color: rgba(51, 51, 51, 0.8); padding: 5px 12px; border-radius: 15px; font-size: 0.9rem; font-weight: 500; }
-/* STYLE UNTUK GENRE (BARU) */
 .genre-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 25px; }
 .tag.genre { background-color: #444; font-weight: 500; }
 .synopsis { margin-bottom: 25px; }
