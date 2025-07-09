@@ -2,7 +2,7 @@
 const allContent = [
     {
         id: 1,
-        title: 'Squid Game',
+        title: 'Squid Game (2021)',
         year: '2021',
         category: 'series',
         quality: 'HD',
