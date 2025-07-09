@@ -11,21 +11,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 </head>
 <body class="stream-page-body">
-
     <header class="stream-header">
         <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Kembali ke Katalog</a>
         <h1 class="brand-title">CinemaBaboet</h1>
     </header>
-
     <main id="stream-container">
-        <!-- Konten di-render oleh JS -->
-        <div class="loading-state">
-            <i class="fas fa-spinner fa-spin"></i>
-            <p>Memuat series...</p>
-        </div>
+        <div class="loading-state"><i class="fas fa-spinner fa-spin"></i><p>Memuat series...</p></div>
     </main>
-    
+    <div class="modal-overlay" id="modal-overlay"></div>
+    <div class="modal-container" id="modal-container">
+        <div class="modal-content">
+            <h3><i class="fas fa-lock"></i> Video Terkunci</h3>
+            <p>Untuk memutar video, silakan klik tombol di bawah ini terlebih dahulu untuk mendukung kami. Terima kasih!</p>
+            <a href="#" id="ad-link-button" class="ad-link-button"><i class="fas fa-play-circle"></i> Buka & Putar Video</a>
+            <small>Iklan akan terbuka di tab baru, video akan otomatis siap diputar.</small>
+        </div>
+    </div>
     <script src="data.js"></script>
-    <script src="series_script.js"></script> <!-- SCRIPT KHUSUS UNTUK HALAMAN INI -->
+    <script src="series_script.js"></script>
 </body>
 </html>
