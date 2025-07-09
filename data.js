@@ -1,3 +1,4 @@
+// DATABASE ULTIMATE - Dengan data genre yang LENGKAP
 const allContent = [
     {
         id: 1,
@@ -6,6 +7,7 @@ const allContent = [
         category: 'series',
         quality: 'HD',
         rating: 8.5,
+        genre: ['Drama', 'Sejarah', 'Romantis'], // <-- GENRE DITAMBAHKAN
         poster: 'https://m.media-amazon.com/images/M/MV5BN2RjZGVkNDItN2I3NC00YjVjLWIyYTUtZDE4NTA2MGMzODc4XkEyXkFqcGdeQXVyMTEzNDY2ODE5._V1_FMjpg_UX1000_.jpg',
         poster_lg: 'https://m.media-amazon.com/images/M/MV5BN2RjZGVkNDItN2I3NC00YjVjLWIyYTUtZDE4NTA2MGMzODc4XkEyXkFqcGdeQXVyMTEzNDY2ODE5._V1_FMjpg_UX1000_.jpg',
         synopsis: 'Kisah Dasiyah, seorang wanita visioner yang gemar meracik saus rokok kretek, berlatar belakang industri tembakau di Indonesia.',
@@ -29,6 +31,7 @@ const allContent = [
         category: 'movie',
         quality: 'HD',
         rating: 8.6,
+        genre: ['Biografi', 'Drama', 'Sejarah'], // <-- GENRE DITAMBAHKAN
         poster: 'https://m.media-amazon.com/images/M/MV5BMDBmYTZjNjUtN2M1MS00MTQ2LTk2ODgtNzc2M2QyZGE5NTVjXkEyXkFqcGdeQXVyNzAwMjU2MTY@._V1_FMjpg_UX1000_.jpg',
         poster_lg: 'https://images.thedirect.com/media/photos/oppenheimer-poster.jpg',
         synopsis: 'Kisah fisikawan teoretis Amerika J. Robert Oppenheimer, dan kontribusinya dalam penciptaan bom atom.',
@@ -44,6 +47,7 @@ const allContent = [
         category: 'indonesia',
         quality: 'HD',
         rating: 8.9,
+        genre: ['Komedi', 'Horor'], // <-- GENRE DITAMBAHKAN
         poster: 'https://m.media-amazon.com/images/M/MV5BODkxNWM1MjYtZWZlZC00M2I0LWIzYWMtOTk3YTRkZDYxZDMxXkEyXkFqcGdeQXVyMTEzMTI1Mjk3._V1_FMjpg_UX1000_.jpg',
         poster_lg: 'https://m.media-amazon.com/images/M/MV5BODkxNWM1MjYtZWZlZC00M2I0LWIzYWMtOTk3YTRkZDYxZDMxXkEyXkFqcGdeQXVyMTEzMTI1Mjk3._V1_FMjpg_UX1000_.jpg',
         synopsis: 'Empat sekawan pengelola rumah hantu harus menghadapi konsekuensi saat salah satu pengunjung meninggal karena kaget.',
