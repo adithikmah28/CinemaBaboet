@@ -1,25 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
     const streamContainer = document.getElementById('stream-container');
 
-    // 1. Ambil ID dari URL (misal: stream.html?id=3)
     const urlParams = new URLSearchParams(window.location.search);
     const contentId = urlParams.get('id');
-
-    // 2. Cari data konten berdasarkan ID
     const contentData = allContent.find(item => item.id == contentId);
 
-    // 3. Jika data ditemukan, render ke halaman. Jika tidak, tampilkan error.
     if (contentData) {
-        // Update judul halaman browser
+        // Update judul halaman
         document.title = `Nonton ${contentData.title} | CinemaBaboet`;
-        
-        // Buat HTML lengkap untuk halaman streaming
-        streamContainer.innerHTML = `
-            <section class="stream-hero" style="background-image: linear-gradient(to top, rgba(20,20,20,1) 20%, rgba(20,20,20,0.5) 50%), url('${contentData.poster_lg}');">
-                <!-- Konten bisa ditaruh di sini jika perlu -->
-            </section>
 
-            <section class="stream-details">
+        // SET BACKGROUND PADA WRAPPER UTAMA (#stream-container)
+        streamContainer.style.backgroundImage = `url('${contentData.poster_lg}')`;
+
+        // RENDER KONTEN KE DALAM WRAPPER
+        streamContainer.innerHTML = `
+            <div class="stream-content-area">
                 <div class="video-container">
                     <iframe 
                         src="${contentData.iframeSrc}" 
@@ -48,15 +43,15 @@ document.addEventListener('DOMContentLoaded', () => {
                         <p><strong>Pemeran:</strong> ${contentData.cast.join(', ')}</p>
                     </div>
                 </div>
-            </section>
+            </div>
         `;
 
     } else {
-        // Tampilkan pesan error jika ID tidak valid atau tidak ditemukan
+        // Tampilkan pesan error jika ID tidak valid
         streamContainer.innerHTML = `
             <div class="error-state">
                 <h2>404 - Konten Tidak Ditemukan</h2>
-                <p>Maaf, film atau series yang kamu cari tidak ada. Mungkin link-nya salah atau konten sudah dihapus.</p>
+                <p>Maaf, film atau series yang kamu cari tidak ada.</p>
                 <a href="index.html" class="btn">Kembali ke Beranda</a>
             </div>
         `;
