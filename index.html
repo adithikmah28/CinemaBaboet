@@ -26,60 +26,62 @@
     </div>
 
     <header>
-        <div class="header-left">
-            <i class="fas fa-bars menu-icon" id="open-menu-btn"></i>
-            <h1 class="brand-title">CinemaBaboet</h1>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="#" class="nav-link active">Movie</a></li>
-                    <li><a href="#" class="nav-link">Series</a></li>
-                    <li><a href="#" class="nav-link">Indonesia</a></li>
-                </ul>
-            </nav>
-        </div>
-        <div class="header-right">
-            <div class="search-bar">
-                <input type="text" placeholder="Cari judul...">
-                <i class="fas fa-search search-icon"></i>
-            </div>
-        </div>
-    </header>
+    <div class="header-left">
+        <i class="fas fa-bars menu-icon" id="open-menu-btn"></i>
+        <h1 class="brand-title">CinemaBaboet</h1>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#" class="nav-link active">Movie</a></li>
+                <li><a href="#" class="nav-link">Series</a></li>
+                <li><a href="#" class="nav-link">Indonesia</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="header-right">
+        <!-- DIUBAH MENJADI FORM -->
+        <form id="search-form" class="search-bar">
+            <input type="text" id="search-input" placeholder="Cari judul...">
+            <button type="submit" class="search-btn-icon"><i class="fas fa-search"></i></button>
+        </form>
+    </div>
+</header>
 
-    <!-- KONTEN UTAMA LANGSUNG DIMULAI DI SINI -->
-    <main class="main-content no-hero">
-        <section class="category-row">
-            <div class="category-header">
-                <h2>CinemaBaboet Originals</h2>
-                <div class="scroll-arrows">
-                    <i class="fas fa-chevron-left scroll-arrow left"></i>
-                    <i class="fas fa-chevron-right scroll-arrow right"></i>
-                </div>
-            </div>
-            <div class="poster-container" id="originals-container"></div>
-        </section>
+<!-- MAIN CONTENT BARU -->
+<main class="main-content no-hero">
+    <section class="category-row">
+        <div class="category-header">
+            <h2>CinemaBaboet Originals</h2>
+            <!-- LINK "LIHAT SEMUA" DITAMBAHKAN -->
+            <a href="category.html?category=originals" class="view-all-link">Lihat Semua <i class="fas fa-chevron-right"></i></a>
+        </div>
+        <div class="poster-container" id="originals-container"></div>
+    </section>
 
-        <section class="category-row">
-            <div class="category-header">
-                <h2>Movie Populer</h2>
-                <div class="scroll-arrows">
-                    <i class="fas fa-chevron-left scroll-arrow left"></i>
-                    <i class="fas fa-chevron-right scroll-arrow right"></i>
-                </div>
-            </div>
-            <div class="poster-container" id="movie-container"></div>
-        </section>
-        
-        <section class="category-row">
+    <section class="category-row">
+        <div class="category-header">
+            <h2>Movie Populer</h2>
+            <a href="category.html?category=movie" class="view-all-link">Lihat Semua <i class="fas fa-chevron-right"></i></a>
+        </div>
+        <div class="poster-container" id="movie-container"></div>
+    </section>
+    
+    <section class="category-row">
+        <div class="category-header">
             <h2>Series Populer</h2>
-            <div class="poster-container" id="series-container"></div>
-        </section>
-        
-        <section class="category-row">
+            <a href="category.html?category=series" class="view-all-link">Lihat Semua <i class="fas fa-chevron-right"></i></a>
+        </div>
+        <div class="poster-container" id="series-container"></div>
+    </section>
+    
+    <section class="category-row">
+        <div class="category-header">
             <h2>Film Indonesia</h2>
-            <div class="poster-container" id="indonesia-container"></div>
-        </section>
-    </main>
-
+            <a href="category.html?category=indonesia" class="view-all-link">Lihat Semua <i class="fas fa-chevron-right"></i></a>
+        </div>
+        <div class="poster-container" id="indonesia-container"></div>
+    </section>
+</main>
+    
     <footer>
         <p>© 2024 CinemaBaboet. Dibuat dengan cinta untuk para baboeters.</p>
     </footer>
