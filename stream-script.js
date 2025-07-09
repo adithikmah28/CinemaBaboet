@@ -1,3 +1,4 @@
+// stream-script.js (DENGAN GENRE)
 document.addEventListener('DOMContentLoaded', () => {
     const streamContainer = document.getElementById('stream-container');
     const urlParams = new URLSearchParams(window.location.search);
@@ -9,14 +10,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const modalContainer = document.getElementById('modal-container');
         const adLinkButton = document.getElementById('ad-link-button');
         const contentWrapper = document.getElementById('content-wrapper');
-
         modalOverlay.classList.add('show');
         modalContainer.classList.add('show');
         contentWrapper.classList.add('content-locked');
-
         adLinkButton.addEventListener('click', (e) => {
             e.preventDefault();
-            const adUrl = 'https://www.google.com'; // GANTI DENGAN DIRECT LINK ANDA
+            const adUrl = 'https://www.google.com';
             window.open(adUrl, '_blank');
             contentWrapper.classList.remove('content-locked');
             modalOverlay.classList.remove('show');
@@ -39,6 +38,12 @@ document.addEventListener('DOMContentLoaded', () => {
                             <span class="tag quality">${contentData.quality}</span>
                             <span class="tag subtitle">SUB: ${contentData.subtitle}</span>
                         </div>
+                        
+                        <!-- GENRE DITAMPILKAN DI SINI -->
+                        <div class="genre-tags">
+                            ${contentData.genre.map(g => `<span class="tag genre">${g}</span>`).join('')}
+                        </div>
+
                         <article class="synopsis">
                             <h2>Sinopsis</h2>
                             <p>${contentData.synopsis}</p>
