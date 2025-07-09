@@ -1,4 +1,3 @@
-// series_script.js (DENGAN AD-LOCK & DETAIL ELEGAN YANG DIKEMBALIKAN)
 document.addEventListener('DOMContentLoaded', () => {
     const streamContainer = document.getElementById('stream-container');
     const urlParams = new URLSearchParams(window.location.search);
@@ -15,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         contentWrapper.classList.add('content-locked');
         adLinkButton.addEventListener('click', (e) => {
             e.preventDefault();
-            const adUrl = 'https://www.google.com'; // GANTI DENGAN DIRECT LINK IKLAN ANDA
+            const adUrl = 'https://www.google.com'; // GANTI DENGAN DIRECT LINK ANDA
             window.open(adUrl, '_blank');
             contentWrapper.classList.remove('content-locked');
             modalOverlay.classList.remove('show');
@@ -24,9 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const renderSeriesPage = (data) => {
-        // =========================================================================
-        // RENDER KONTEN DENGAN STRUKTUR HTML YANG BENAR DAN LENGKAP
-        // =========================================================================
         streamContainer.innerHTML = `
             <div id="content-wrapper">
                 <div class="stream-content-area">
@@ -39,12 +35,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                     <div class="info-container">
                         <h1 class="movie-title">${data.title} (${data.year})</h1>
-                        
                         <article class="synopsis">
                             <h2>Sinopsis</h2>
                             <p>${data.synopsis}</p>
                         </article>
-                        
                         <div class="credits">
                             <p><strong>Sutradara:</strong> ${data.director}</p>
                             <p><strong>Pemeran:</strong> ${data.cast.join(', ')}</p>
