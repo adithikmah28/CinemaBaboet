@@ -116,3 +116,50 @@ footer { text-align: center; padding: 30px 50px; margin-top: 50px; border-top: 1
     .stream-content-area { padding: 0 20px; }
     .movie-title { font-size: 1.8rem; }
 }
+/* ======================================= */
+/* 9. CATEGORY PAGE & PAGINATION STYLES    */
+/* ======================================= */
+.search-btn-icon { background: none; border: none; color: var(--light-color); font-size: 1rem; cursor: pointer; padding-right: 10px; }
+.back-to-home { font-size: 1.5rem; margin-right: 20px; color: var(--light-color); }
+
+.main-content.category-page { padding: 40px 50px; }
+.page-title { font-size: 1.8rem; margin-bottom: 30px; }
+.poster-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 20px;
+}
+.no-results { font-size: 1.2rem; color: var(--gray-color); text-align: center; grid-column: 1 / -1; }
+.view-all-link { color: var(--gray-color); text-decoration: none; font-weight: 500; font-size: 0.9rem; transition: color 0.3s; }
+.view-all-link:hover { color: var(--light-color); }
+.view-all-link i { font-size: 0.7rem; margin-left: 5px; }
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    gap: 10px;
+}
+.page-btn {
+    color: var(--light-color);
+    background-color: #333;
+    border: 1px solid #555;
+    padding: 10px 15px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+.page-btn:hover { background-color: #555; }
+.page-btn.active {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    cursor: default;
+}
+/* Penyesuaian responsive untuk grid */
+@media (max-width: 768px) {
+    .poster-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
+    .main-content.category-page { padding: 30px 20px; }
+    .page-title { font-size: 1.5rem; }
+}
