@@ -1,4 +1,6 @@
-// series_script.js (DENGAN GENRE)
+// GABUNGKAN SEMUA DATA MENJADI SATU
+const allContent = [...movieData, ...seriesData, ...indonesiaData, ...animeData];
+
 document.addEventListener('DOMContentLoaded', () => {
     const streamContainer = document.getElementById('stream-container');
     const urlParams = new URLSearchParams(window.location.search);
@@ -15,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         contentWrapper.classList.add('content-locked');
         adLinkButton.addEventListener('click', (e) => {
             e.preventDefault();
-            const adUrl = 'https://www.google.com';
+            const adUrl = 'https://www.google.com'; // GANTI DENGAN DIRECT LINK ANDA
             window.open(adUrl, '_blank');
             contentWrapper.classList.remove('content-locked');
             modalOverlay.classList.remove('show');
@@ -35,13 +37,10 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div class="episode-selector" id="episode-selector"></div>
                     </div>
                     <div class="info-container">
-                        <h1 class="movie-title">${data.title} (${data.year})</h1>
-                        
-                        <!-- GENRE DITAMPILKAN DI SINI -->
+                        <h1 class="movie-title">${data.title}</h1>
                         <div class="genre-tags">
                             ${data.genre.map(g => `<span class="tag genre">${g}</span>`).join('')}
                         </div>
-
                         <article class="synopsis">
                             <h2>Sinopsis</h2>
                             <p>${data.synopsis}</p>
@@ -88,11 +87,11 @@ document.addEventListener('DOMContentLoaded', () => {
         renderEpisodes(0);
     };
 
-    if (seriesData && seriesData.category === 'series') {
+    if (seriesData && (seriesData.category === 'series' || seriesData.category === 'anime')) {
         document.title = `Nonton ${seriesData.title} | CinemaBaboet`;
         streamContainer.style.backgroundImage = `url('${seriesData.poster_lg}')`;
         renderSeriesPage(seriesData);
     } else {
-        streamContainer.innerHTML = `<div class="error-state"><h2>404 - Series Tidak Ditemukan</h2></div>`;
+        streamContainer.innerHTML = `<div class="error-state"><h2>404 - Konten Tidak Ditemukan</h2></div>`;
     }
 });
