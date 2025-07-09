@@ -1,4 +1,4 @@
-// stream-script.js (DENGAN AD-LOCK & DETAIL LENGKAP)
+// stream-script.js (DENGAN AD-LOCK & DETAIL LENGKAP - FIXED)
 document.addEventListener('DOMContentLoaded', () => {
     const streamContainer = document.getElementById('stream-container');
     const urlParams = new URLSearchParams(window.location.search);
@@ -18,10 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         adLinkButton.addEventListener('click', (e) => {
             e.preventDefault();
-            // =============================================================
             // GANTI DENGAN DIRECT LINK IKLAN ANDA
             const adUrl = 'https://www.google.com'; 
-            // =============================================================
             
             window.open(adUrl, '_blank'); // Buka iklan
             // Buka kunci konten
