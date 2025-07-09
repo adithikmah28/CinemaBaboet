@@ -1,7 +1,8 @@
-// GABUNGKAN SEMUA DATA MENJADI SATU
-const allContent = [...movieData, ...seriesData, ...indonesiaData, ...animeData];
-
+// stream-script.js (FIXED)
 document.addEventListener('DOMContentLoaded', () => {
+    // THE REAL FIX: Pindahkan 'allContent' ke dalam DOMContentLoaded
+    const allContent = [...movieData, ...seriesData, ...indonesiaData, ...animeData];
+
     const streamContainer = document.getElementById('stream-container');
     const urlParams = new URLSearchParams(window.location.search);
     const contentId = urlParams.get('id');
@@ -19,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         adLinkButton.addEventListener('click', (e) => {
             e.preventDefault();
-            const adUrl = 'https://www.google.com'; // GANTI DENGAN DIRECT LINK ANDA
+            const adUrl = 'https://www.google.com';
             window.open(adUrl, '_blank');
             contentWrapper.classList.remove('content-locked');
             modalOverlay.classList.remove('show');
