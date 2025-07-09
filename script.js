@@ -72,8 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // --- EKSEKUSI SEMUA FUNGSI ---
-    // Sekarang memanggil populateCategory dengan limit 10
-    populateCategory('originals-container', item => item.isOriginal === true, 10);
+    // Sekarang memanggil populateCategory dengan limit 1
     populateCategory('movie-container', item => item.category === 'movie' && !item.isOriginal, 10);
     populateCategory('series-container', item => item.category === 'series' && !item.isOriginal, 10);
     populateCategory('indonesia-container', item => item.category === 'indonesia', 10);
