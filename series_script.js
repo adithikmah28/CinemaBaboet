@@ -1,3 +1,4 @@
+// series_script.js (DENGAN AD-LOCK & DETAIL LENGKAP)
 document.addEventListener('DOMContentLoaded', () => {
     const streamContainer = document.getElementById('stream-container');
     const urlParams = new URLSearchParams(window.location.search);
@@ -14,7 +15,10 @@ document.addEventListener('DOMContentLoaded', () => {
         contentWrapper.classList.add('content-locked');
         adLinkButton.addEventListener('click', (e) => {
             e.preventDefault();
-            const adUrl = 'https://www.google.com'; // GANTI DENGAN DIRECT LINK ANDA
+            // =============================================================
+            // GANTI DENGAN DIRECT LINK IKLAN ANDA
+            const adUrl = 'https://www.google.com'; 
+            // =============================================================
             window.open(adUrl, '_blank');
             contentWrapper.classList.remove('content-locked');
             modalOverlay.classList.remove('show');
@@ -23,25 +27,39 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const renderSeriesPage = (data) => {
+        // RENDER KONTEN DENGAN SEMUA DETAIL
         streamContainer.innerHTML = `
-            <div id="content-wrapper">
+            <div id="content-wrapper"> <!-- Wrapper untuk dikunci -->
                 <div class="stream-content-area">
                     <div class="video-container">
                         <iframe id="video-player" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
+                    
                     <div class="episode-navigation">
                         <div class="season-selector" id="season-selector"></div>
                         <div class="episode-selector" id="episode-selector"></div>
                     </div>
+
                     <div class="info-container">
                         <h1 class="movie-title">${data.title} (${data.year})</h1>
-                        <article class="synopsis"><p>${data.synopsis}</p></article>
+                        
+                        <!-- Tidak ada meta-tags di series, bisa ditambahkan jika perlu -->
+
+                        <article class="synopsis">
+                            <h2>Sinopsis</h2>
+                            <p>${data.synopsis}</p>
+                        </article>
+
+                        <div class="credits">
+                            <p><strong>Sutradara:</strong> ${data.director}</p>
+                            <p><strong>Pemeran:</strong> ${data.cast.join(', ')}</p>
+                        </div>
                     </div>
                 </div>
             </div>
         `;
         setupSelectors(data.seasons);
-        initializeAdLock();
+        initializeAdLock(); // Panggil Ad-Lock setelah konten dirender
     };
 
     const setupSelectors = (seasons) => {
