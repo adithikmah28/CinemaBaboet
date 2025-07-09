@@ -1,4 +1,3 @@
-// stream-script.js (DENGAN AD-LOCK & DETAIL ELEGAN YANG DIKEMBALIKAN)
 document.addEventListener('DOMContentLoaded', () => {
     const streamContainer = document.getElementById('stream-container');
     const urlParams = new URLSearchParams(window.location.search);
@@ -11,18 +10,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const adLinkButton = document.getElementById('ad-link-button');
         const contentWrapper = document.getElementById('content-wrapper');
 
-        // Tampilkan modal dan kunci konten
         modalOverlay.classList.add('show');
         modalContainer.classList.add('show');
         contentWrapper.classList.add('content-locked');
 
         adLinkButton.addEventListener('click', (e) => {
             e.preventDefault();
-            // GANTI DENGAN DIRECT LINK IKLAN ANDA
-            const adUrl = 'https://www.google.com'; 
-            
-            window.open(adUrl, '_blank'); // Buka iklan
-            // Buka kunci konten
+            const adUrl = 'https://www.google.com'; // GANTI DENGAN DIRECT LINK ANDA
+            window.open(adUrl, '_blank');
             contentWrapper.classList.remove('content-locked');
             modalOverlay.classList.remove('show');
             modalContainer.classList.remove('show');
@@ -32,30 +27,22 @@ document.addEventListener('DOMContentLoaded', () => {
     if (contentData && (contentData.category === 'movie' || contentData.category === 'indonesia')) {
         document.title = `Nonton ${contentData.title} | CinemaBaboet`;
         streamContainer.style.backgroundImage = `url('${contentData.poster_lg}')`;
-        
-        // =========================================================================
-        // RENDER KONTEN DENGAN STRUKTUR HTML YANG BENAR DAN LENGKAP
-        // =========================================================================
         streamContainer.innerHTML = `
-            <div id="content-wrapper"> <!-- Wrapper untuk dikunci -->
+            <div id="content-wrapper">
                 <div class="stream-content-area">
                     <div class="video-container">
                         <iframe src="${contentData.iframeSrc}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
-
                     <div class="info-container">
                         <h1 class="movie-title">${contentData.title} (${contentData.year})</h1>
-                        
                         <div class="meta-tags">
                             <span class="tag quality">${contentData.quality}</span>
                             <span class="tag subtitle">SUB: ${contentData.subtitle}</span>
                         </div>
-
                         <article class="synopsis">
                             <h2>Sinopsis</h2>
                             <p>${contentData.synopsis}</p>
                         </article>
-
                         <div class="credits">
                             <p><strong>Sutradara:</strong> ${contentData.director}</p>
                             <p><strong>Pemeran:</strong> ${contentData.cast.join(', ')}</p>
@@ -64,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             </div>
         `;
-        initializeAdLock(); // Panggil Ad-Lock setelah konten dirender
+        initializeAdLock();
     } else {
         streamContainer.innerHTML = `<div class="error-state"><h2>404 - Konten Tidak Ditemukan</h2></div>`;
     }
