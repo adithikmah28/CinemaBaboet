@@ -1,18 +1,18 @@
 const indonesiaData = [
     {
-        id: 1133223,
-        title: 'Agak Laen',
+        id: 1223799,
+        title: 'Pemandi Jenazah',
         year: '2024',
         category: 'indonesia',
         quality: 'HD',
-        rating: 8.9,
-        genre: ['Komedi', 'Horor'],
-        poster: 'https://m.media-amazon.com/images/M/MV5BODkxNWM1MjYtZWZlZC00M2I0LWIzYWMtOTk3YTRkZDYxZDMxXkEyXkFqcGdeQXVyMTEzMTI1Mjk3._V1_FMjpg_UX1000_.jpg',
-        poster_lg: 'https://m.media-amazon.com/images/M/MV5BODkxNWM1MjYtZWZlZC00M2I0LWIzYWMtOTk3YTRkZDYxZDMxXkEyXkFqcGdeQXVyMTEzMTI1Mjk3._V1_FMjpg_UX1000_.jpg',
-        synopsis: 'Empat sekawan pengelola rumah hantu harus menghadapi konsekuensi saat salah satu pengunjung meninggal karena kaget.',
-        cast: ['Bene Dion', 'Oki Rengga', 'Indra Jegel', 'Boris Bokir'],
-        director: 'Muhadkly Acho',
+        rating: 6.9,
+        genre: ['Horror', 'Drama', 'Thriller'], // <-- GENRE DITAMBAHKAN
+        poster: 'https://image.tmdb.org/t/p/original/tgMEMGpnSKJrqSAmrnRygv5KBur.jpg',
+        poster_lg: 'https://image.tmdb.org/t/p/original/tgMEMGpnSKJrqSAmrnRygv5KBur.jpg',
+        synopsis: 'Lela, seorang petugas pemakaman, menemukan keanehan pada jenazah ibunya yang meninggal mendadak. Terjebak dalam ketegangan sakral dan perjalanan horor yang menegangkan, Lela menemukan keanehan lain pada tubuh mayat yang sedang dimandikannya.',
+        cast: ['Aghniny Haque', 'Djenar Maesa Ayu', 'Ibrahim Risyad'],
+        director: 'Hadrah Daeng Ratu',
         subtitle: 'Indonesia',
-        iframeSrc: 'https://www.youtube.com/embed/9B69pS05S8w'
+        iframeSrc: 'https://vidlink.pro/movie/1223799'
     }
 ];
