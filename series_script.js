@@ -1,5 +1,7 @@
+// series_script.js (FIXED - DENGAN PENGECEKAN KEAMANAN GANDA)
 document.addEventListener('DOMContentLoaded', () => {
-    const allContent = [...movieData, ...seriesData, ...indonesiaData];
+    // GABUNGKAN SEMUA DATA MENJADI SATU
+    const allContent = [...movieData, ...seriesData, ...indonesiaData, ...animeData];
 
     const streamContainer = document.getElementById('stream-container');
     const urlParams = new URLSearchParams(window.location.search);
@@ -16,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
         contentWrapper.classList.add('content-locked');
         adLinkButton.addEventListener('click', (e) => {
             e.preventDefault();
-            const adUrl = 'https://www.google.com';
+            const adUrl = 'https://www.google.com'; // GANTI DENGAN DIRECT LINK ANDA
             window.open(adUrl, '_blank');
             contentWrapper.classList.remove('content-locked');
             modalOverlay.classList.remove('show');
@@ -74,15 +76,20 @@ document.addEventListener('DOMContentLoaded', () => {
         const renderEpisodes = (seasonIndex) => {
             const currentSeason = seasons[seasonIndex];
             
+            // =================================================================
+            // THE REAL, ACTUAL, FINAL FIX IS HERE
+            // =================================================================
             if (!currentSeason || !currentSeason.episodes || currentSeason.episodes.length === 0) {
                 episodeSelector.innerHTML = '<p>Episode untuk season ini belum tersedia.</p>';
                 if (videoPlayer) videoPlayer.src = '';
-                return;
+                return; // Hentikan fungsi jika season ini tidak punya episode
             }
+            // =================================================================
 
             const episodes = currentSeason.episodes;
             episodeSelector.innerHTML = episodes.map((ep, i) => `<button class="episode-box ${i === 0 ? 'active' : ''}" data-episode-index="${i}">${ep.episode_number}</button>`).join('');
             
+            // Set video player ke episode pertama setelah memastikan episodes ada
             videoPlayer.src = episodes[0].iframeSrc;
             
             addEpisodeClickListeners(seasonIndex);
@@ -107,10 +114,11 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
+        // Render episode untuk season pertama saat halaman dimuat
         renderEpisodes(0);
     };
 
-    if (seriesData && (seriesData.category === 'series')) {
+    if (seriesData && (seriesData.category === 'series' || seriesData.category === 'anime')) {
         document.title = `Nonton ${seriesData.title} | CinemaBaboet`;
         streamContainer.style.backgroundImage = `url('${seriesData.poster_lg}')`;
         renderSeriesPage(seriesData);
