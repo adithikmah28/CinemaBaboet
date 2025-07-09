@@ -81,7 +81,10 @@ header { position: sticky; top: 0; z-index: 1000; background-color: var(--dark-c
 .info-container { padding: 0; }
 .movie-title { font-size: 2.5rem; font-weight: 700; margin-bottom: 15px; }
 .meta-tags { display: flex; gap: 15px; margin-bottom: 25px; flex-wrap: wrap; }
-.meta-tags .tag { background-color: rgba(51, 51, 51, 0.8); padding: 5px 12px; border-radius: 15px; font-size: 0.9rem; font-weight: 500; }
+.tag { background-color: rgba(51, 51, 51, 0.8); padding: 5px 12px; border-radius: 15px; font-size: 0.9rem; font-weight: 500; }
+/* STYLE UNTUK GENRE (BARU) */
+.genre-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 25px; }
+.tag.genre { background-color: #444; font-weight: 500; }
 .synopsis { margin-bottom: 25px; }
 .synopsis h2 { font-size: 1.4rem; margin-bottom: 10px; border-left: 4px solid var(--primary-color); padding-left: 10px; }
 .synopsis p { line-height: 1.7; color: #ccc; }
