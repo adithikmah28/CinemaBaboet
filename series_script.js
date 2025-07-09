@@ -1,3 +1,4 @@
+// series_script.js (DENGAN GENRE)
 document.addEventListener('DOMContentLoaded', () => {
     const streamContainer = document.getElementById('stream-container');
     const urlParams = new URLSearchParams(window.location.search);
@@ -14,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         contentWrapper.classList.add('content-locked');
         adLinkButton.addEventListener('click', (e) => {
             e.preventDefault();
-            const adUrl = 'https://www.google.com'; // GANTI DENGAN DIRECT LINK ANDA
+            const adUrl = 'https://www.google.com';
             window.open(adUrl, '_blank');
             contentWrapper.classList.remove('content-locked');
             modalOverlay.classList.remove('show');
@@ -35,6 +36,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                     <div class="info-container">
                         <h1 class="movie-title">${data.title} (${data.year})</h1>
+                        
+                        <!-- GENRE DITAMPILKAN DI SINI -->
+                        <div class="genre-tags">
+                            ${data.genre.map(g => `<span class="tag genre">${g}</span>`).join('')}
+                        </div>
+
                         <article class="synopsis">
                             <h2>Sinopsis</h2>
                             <p>${data.synopsis}</p>
