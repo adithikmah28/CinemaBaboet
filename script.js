@@ -1,4 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const openMenuBtn = document.getElementById('open-menu-btn');
+    const closeMenuBtn = document.getElementById('close-menu-btn');
+    const mobileNav = document.getElementById('mobile-nav');
+    const overlay = document.getElementById('overlay');
+    if (openMenuBtn) {
+        const openMenu = () => { mobileNav.classList.add('show'); overlay.classList.add('show'); };
+        const closeMenu = () => { mobileNav.classList.remove('show'); overlay.classList.remove('show'); };
+        openMenuBtn.addEventListener('click', openMenu);
+        closeMenuBtn.addEventListener('click', closeMenu);
+        overlay.addEventListener('click', closeMenu);
+    }
     const searchForm = document.getElementById('search-form');
     const searchInput = document.getElementById('search-input');
     if(searchForm) {
