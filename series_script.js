@@ -1,6 +1,6 @@
-// series_script.js (FIXED)
+// series_script.js (FIXED - DENGAN PENGECEKAN KEAMANAN)
 document.addEventListener('DOMContentLoaded', () => {
-    // THE REAL FIX: Pindahkan 'allContent' ke dalam DOMContentLoaded
+    // GABUNGKAN SEMUA DATA MENJADI SATU
     const allContent = [...movieData, ...seriesData, ...indonesiaData, ...animeData];
 
     const streamContainer = document.getElementById('stream-container');
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
         contentWrapper.classList.add('content-locked');
         adLinkButton.addEventListener('click', (e) => {
             e.preventDefault();
-            const adUrl = 'https://www.google.com';
+            const adUrl = 'https://www.google.com'; // GANTI DENGAN DIRECT LINK ANDA
             window.open(adUrl, '_blank');
             contentWrapper.classList.remove('content-locked');
             modalOverlay.classList.remove('show');
@@ -59,25 +59,50 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const setupSelectors = (seasons) => {
+        // =================================================================
+        // THE REAL FIX: Tambahkan pengecekan ini untuk mencegah crash
+        // =================================================================
+        if (!seasons || seasons.length === 0) {
+            const episodeNav = document.querySelector('.episode-navigation');
+            if (episodeNav) episodeNav.innerHTML = '<p>Data episode belum tersedia.</p>';
+            // Set video player ke sumber kosong agar tidak error
+            const videoPlayer = document.getElementById('video-player');
+            if(videoPlayer) videoPlayer.src = '';
+            return; // Hentikan fungsi jika tidak ada season
+        }
+        // =================================================================
+
         const seasonSelector = document.getElementById('season-selector');
         const episodeSelector = document.getElementById('episode-selector');
         const videoPlayer = document.getElementById('video-player');
+        
         seasonSelector.innerHTML = seasons.map((season, i) => `<button class="season-btn ${i === 0 ? 'active' : ''}" data-season-index="${i}">Season ${season.season_number}</button>`).join('');
+        
         const renderEpisodes = (seasonIndex) => {
             const episodes = seasons[seasonIndex].episodes;
             episodeSelector.innerHTML = episodes.map((ep, i) => `<button class="episode-box ${i === 0 ? 'active' : ''}" data-episode-index="${i}">${ep.episode_number}</button>`).join('');
-            videoPlayer.src = episodes[0].iframeSrc;
+            
+            // Set video player ke episode pertama dari season ini
+            if (episodes.length > 0) {
+                videoPlayer.src = episodes[0].iframeSrc;
+            } else {
+                videoPlayer.src = ''; // Kosongkan jika tidak ada episode
+            }
+
             addEpisodeClickListeners(seasonIndex);
         };
+
         const addEpisodeClickListeners = (seasonIndex) => {
             episodeSelector.querySelectorAll('.episode-box').forEach(box => {
                 box.addEventListener('click', () => {
                     episodeSelector.querySelector('.active')?.classList.remove('active');
                     box.classList.add('active');
-                    videoPlayer.src = seasons[seasonIndex].episodes[box.dataset.episodeIndex].iframeSrc;
+                    const episodeIndex = box.dataset.episodeIndex;
+                    videoPlayer.src = seasons[seasonIndex].episodes[episodeIndex].iframeSrc;
                 });
             });
         };
+        
         seasonSelector.querySelectorAll('.season-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 seasonSelector.querySelector('.active')?.classList.remove('active');
@@ -85,6 +110,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 renderEpisodes(btn.dataset.seasonIndex);
             });
         });
+
+        // Render episode untuk season pertama saat halaman dimuat
         renderEpisodes(0);
     };
 
