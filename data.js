@@ -2,8 +2,8 @@
 const allContent = [
     {
         id: 1,
-        title: 'Squid Game (2021)',
-        year: '',
+        title: 'Squid Game',
+        year: '2021',
         category: 'series',
         quality: 'HD',
         rating: 7.9,
@@ -71,8 +71,8 @@ const allContent = [
     },
     {
         id: 3,
-        title: 'Pemandi Jenazah (2024)',
-        year: '',
+        title: 'Pemandi Jenazah',
+        year: '2024',
         category: 'indonesia',
         quality: 'HD',
         rating: 6.9,
