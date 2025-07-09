@@ -11,23 +11,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 </head>
 <body>
-    <div id="overlay"></div>
-
-    <div class="mobile-nav" id="mobile-nav">
-        <div class="mobile-nav-header">
-            <h1 class="brand-title">CinemaBaboet</h1>
-            <i class="fas fa-times close-icon" id="close-menu-btn"></i>
-        </div>
-        <ul>
-            <li><a href="category.html?category=movie">Movie</a></li>
-            <li><a href="category.html?category=series">Series</a></li>
-            <li><a href="category.html?category=indonesia">Indonesia</a></li>
-        </ul>
-    </div>
-
     <header>
         <div class="header-left">
-            <i class="fas fa-bars menu-icon" id="open-menu-btn"></i>
             <h1 class="brand-title">CinemaBaboet</h1>
             <nav class="main-nav">
                 <ul>
@@ -44,11 +29,7 @@
             </form>
         </div>
     </header>
-
-    <!-- KONTEN UTAMA LANGSUNG DIMULAI DENGAN 3 KATEGORI -->
     <main class="main-content no-hero">
-        
-        <!-- KATEGORI MOVIE -->
         <section class="category-row">
             <div class="category-header">
                 <h2>Movie</h2>
@@ -56,8 +37,6 @@
             </div>
             <div class="poster-container" id="movie-container"></div>
         </section>
-        
-        <!-- KATEGORI SERIES -->
         <section class="category-row">
             <div class="category-header">
                 <h2>Series</h2>
@@ -65,8 +44,6 @@
             </div>
             <div class="poster-container" id="series-container"></div>
         </section>
-        
-        <!-- KATEGORI INDONESIA -->
         <section class="category-row">
             <div class="category-header">
                 <h2>Indonesia</h2>
@@ -74,13 +51,10 @@
             </div>
             <div class="poster-container" id="indonesia-container"></div>
         </section>
-
     </main>
-
     <footer>
         <p>© 2024 CinemaBaboet. Dibuat dengan cinta untuk para baboeters.</p>
     </footer>
-
     <script src="data.js"></script>
     <script src="script.js"></script>
 </body>
