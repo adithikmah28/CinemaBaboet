@@ -163,6 +163,6 @@ const allContent = [
         cast: ['Jessica Mila', 'Bianca Hello', 'Denny Sumargo'],
         director: 'Rocky Soraya',
         subtitle: 'Indonesia',
-        iframeSrc: 'https://vidsrc.icu/embed/movie/480007'
+        iframeSrc: 'https://vidsrc.pm/embed/movie?tmdb=480007'
     }
 ];
