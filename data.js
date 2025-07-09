@@ -3,7 +3,7 @@ const allContent = [
     {
         id: 1,
         title: 'Squid Game (2021)',
-        year: '2021',
+        year: '',
         category: 'series',
         quality: 'HD',
         rating: 7.9,
@@ -56,7 +56,7 @@ const allContent = [
     {
         id: 9,
         title: 'Oppenheimer',
-        year: '2023',
+        year: '',
         category: 'movie',
         quality: 'HD',
         rating: 8.6,
@@ -72,7 +72,7 @@ const allContent = [
     {
         id: 3,
         title: 'Pemandi Jenazah (2024)',
-        year: '2024',
+        year: '',
         category: 'indonesia',
         quality: 'HD',
         rating: 6.9,
