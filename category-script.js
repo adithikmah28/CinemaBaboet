@@ -1,11 +1,8 @@
-// category-script.js (FIXED)
 document.addEventListener('DOMContentLoaded', () => {
-    // THE REAL FIX: Pindahkan 'allContent' ke dalam DOMContentLoaded
-    const allContent = [...movieData, ...seriesData, ...indonesiaData, ...animeData];
-    
-    // --- FUNGSI UNTUK MEMBUAT KARTU POSTER ---
+    const allContent = [...movieData, ...seriesData, ...indonesiaData];
+
     const createPosterCard = (content) => {
-        const streamPage = content.category === 'series' || content.category === 'anime' ? 'series_stream.html' : 'stream.html';
+        const streamPage = content.category === 'series' ? 'series_stream.html' : 'stream.html';
         const qualityClass = content.quality.toLowerCase();
         return `
             <a href="${streamPage}?id=${content.id}" class="poster-link">
@@ -19,7 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
     };
     
-    // --- LOGIKA UTAMA HALAMAN KATEGORI ---
     const pageTitle = document.getElementById('page-title');
     const posterGrid = document.getElementById('poster-grid');
     const paginationContainer = document.getElementById('pagination-container');
