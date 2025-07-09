@@ -56,14 +56,14 @@ const allContent = [
     {
         id: 9,
         title: 'Oppenheimer',
-        year: '',
+        year: '2023',
         category: 'movie',
         quality: 'HD',
         rating: 8.6,
         genre: ['Biografi', 'Drama', 'Sejarah'], // <-- GENRE DITAMBAHKAN
-        poster: 'https://m.media-amazon.com/images/M/MV5BMDBmYTZjNjUtN2M1MS00MTQ2LTk2ODgtNzc2M2QyZGE5NTVjXkEyXkFqcGdeQXVyNzAwMjU2MTY@._V1_FMjpg_UX1000_.jpg',
-        poster_lg: 'https://images.thedirect.com/media/photos/oppenheimer-poster.jpg',
-        synopsis: 'Kisah fisikawan teoretis Amerika J. Robert Oppenheimer, dan kontribusinya dalam penciptaan bom atom.',
+        poster: 'https://image.tmdb.org/t/p/w600_and_h900_bestv2/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg',
+        poster_lg: 'https://image.tmdb.org/t/p/w600_and_h900_bestv2/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg',
+        synopsis: 'Kisah J. Peran Robert Oppenheimer dalam pengembangan bom atom selama Perang Dunia II.',
         cast: ['Cillian Murphy', 'Emily Blunt', 'Matt Damon', 'Robert Downey Jr.'],
         director: 'Christopher Nolan',
         subtitle: 'English, Indonesia',
