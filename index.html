@@ -11,11 +11,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 </head>
 <body>
-
-    <!-- Overlay untuk background saat menu mobile aktif -->
     <div id="overlay"></div>
 
-    <!-- Mobile Navigation (awalnya tersembunyi) -->
     <div class="mobile-nav" id="mobile-nav">
         <div class="mobile-nav-header">
             <h1 class="brand-title">CinemaBaboet</h1>
@@ -28,7 +25,6 @@
         </ul>
     </div>
 
-    <!-- HEADER / NAVIGATION BAR -->
     <header>
         <div class="header-left">
             <i class="fas fa-bars menu-icon" id="open-menu-btn"></i>
@@ -49,40 +45,60 @@
         </div>
     </header>
 
-    <!-- HERO SECTION (FILM UNGGULAN DINAMIS) -->
     <section class="hero-section" id="hero-section">
         <div class="hero-content">
-            <!-- Konten ini akan diisi oleh JavaScript -->
             <h2 class="hero-title" id="hero-title"></h2>
             <p class="hero-description" id="hero-description"></p>
             <div class="hero-buttons" id="hero-buttons-container"></div>
         </div>
     </section>
 
-    <!-- MAIN CONTENT (DAFTAR FILM) -->
     <main class="main-content">
         <section class="category-row">
-            <h2>CinemaBaboet Originals</h2>
+            <div class="category-header">
+                <h2>CinemaBaboet Originals</h2>
+                <div class="scroll-arrows">
+                    <i class="fas fa-chevron-left scroll-arrow left"></i>
+                    <i class="fas fa-chevron-right scroll-arrow right"></i>
+                </div>
+            </div>
             <div class="poster-container" id="originals-container"></div>
         </section>
 
         <section class="category-row">
-            <h2>Movie Populer</h2>
+            <div class="category-header">
+                <h2>Movie Populer</h2>
+                <div class="scroll-arrows">
+                    <i class="fas fa-chevron-left scroll-arrow left"></i>
+                    <i class="fas fa-chevron-right scroll-arrow right"></i>
+                </div>
+            </div>
             <div class="poster-container" id="movie-container"></div>
         </section>
         
         <section class="category-row">
-            <h2>Series Populer</h2>
+            <div class="category-header">
+                <h2>Series Populer</h2>
+                <div class="scroll-arrows">
+                    <i class="fas fa-chevron-left scroll-arrow left"></i>
+                    <i class="fas fa-chevron-right scroll-arrow right"></i>
+                </div>
+            </div>
             <div class="poster-container" id="series-container"></div>
         </section>
         
         <section class="category-row">
-            <h2>Film Indonesia</h2>
+            <div class="category-header">
+                <h2>Film Indonesia</h2>
+                <div class="scroll-arrows">
+                    <i class="fas fa-chevron-left scroll-arrow left"></i>
+                    <i class="fas fa-chevron-right scroll-arrow right"></i>
+                </div>
+            </div>
             <div class="poster-container" id="indonesia-container"></div>
         </section>
     </main>
 
-    <!-- FOOTER -->
     <footer>
         <p>© 2024 CinemaBaboet. Dibuat dengan cinta untuk para baboeters.</p>
     </footer>
