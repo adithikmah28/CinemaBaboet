@@ -148,5 +148,21 @@ const allContent = [
         director: 'Angga Dwimas Sasongko',
         subtitle: 'Indonesia',
         iframeSrc: 'https://vidsrc.pm/embed/movie?tmdb=832544'
+    },
+    {
+        id: 8,
+        title: 'mata batin',
+        year: '2018',
+        category: 'indonesia',
+        quality: 'HD',
+        rating: 7.5,
+        genre: ['Drama', 'Horror', 'Mystery'], // <-- GENRE DITAMBAHKAN
+        poster: 'https://image.tmdb.org/t/p/w600_and_h900_bestv2/9vDSQoEVFCwt9O21E0O0BEqu57k.jpg',
+        poster_lg: 'https://image.tmdb.org/t/p/w600_and_h900_bestv2/9vDSQoEVFCwt9O21E0O0BEqu57k.jpg',
+        synopsis: 'Seorang wanita tersiksa dengan kemampuan mata ketiga.',
+        cast: ['Jessica Mila', 'Bianca Hello', 'Denny Sumargo'],
+        director: 'Rocky Soraya',
+        subtitle: 'Indonesia',
+        iframeSrc: 'https://vidsrc.icu/embed/movie/480007'
     }
 ];
