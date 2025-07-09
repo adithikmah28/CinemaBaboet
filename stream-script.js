@@ -1,4 +1,6 @@
-// stream-script.js (DENGAN GENRE)
+// GABUNGKAN SEMUA DATA MENJADI SATU
+const allContent = [...movieData, ...seriesData, ...indonesiaData, ...animeData];
+
 document.addEventListener('DOMContentLoaded', () => {
     const streamContainer = document.getElementById('stream-container');
     const urlParams = new URLSearchParams(window.location.search);
@@ -10,12 +12,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const modalContainer = document.getElementById('modal-container');
         const adLinkButton = document.getElementById('ad-link-button');
         const contentWrapper = document.getElementById('content-wrapper');
+
         modalOverlay.classList.add('show');
         modalContainer.classList.add('show');
         contentWrapper.classList.add('content-locked');
+
         adLinkButton.addEventListener('click', (e) => {
             e.preventDefault();
-            const adUrl = 'https://www.google.com';
+            const adUrl = 'https://www.google.com'; // GANTI DENGAN DIRECT LINK ANDA
             window.open(adUrl, '_blank');
             contentWrapper.classList.remove('content-locked');
             modalOverlay.classList.remove('show');
@@ -33,17 +37,14 @@ document.addEventListener('DOMContentLoaded', () => {
                         <iframe src="${contentData.iframeSrc}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="info-container">
-                        <h1 class="movie-title">${contentData.title} (${contentData.year})</h1>
+                        <h1 class="movie-title">${contentData.title}</h1>
                         <div class="meta-tags">
                             <span class="tag quality">${contentData.quality}</span>
                             <span class="tag subtitle">SUB: ${contentData.subtitle}</span>
                         </div>
-                        
-                        <!-- GENRE DITAMPILKAN DI SINI -->
                         <div class="genre-tags">
                             ${contentData.genre.map(g => `<span class="tag genre">${g}</span>`).join('')}
                         </div>
-
                         <article class="synopsis">
                             <h2>Sinopsis</h2>
                             <p>${contentData.synopsis}</p>
