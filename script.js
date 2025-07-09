@@ -1,7 +1,8 @@
-// GABUNGKAN SEMUA DATA MENJADI SATU
-const allContent = [...movieData, ...seriesData, ...indonesiaData, ...animeData];
-
+// script.js (FIXED)
 document.addEventListener('DOMContentLoaded', () => {
+    // THE REAL FIX: Pindahkan 'allContent' ke dalam DOMContentLoaded
+    const allContent = [...movieData, ...seriesData, ...indonesiaData, ...animeData];
+
     // --- LOGIKA UNTUK MENU MOBILE & OVERLAY ---
     const openMenuBtn = document.getElementById('open-menu-btn');
     const closeMenuBtn = document.getElementById('close-menu-btn');
