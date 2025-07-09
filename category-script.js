@@ -46,4 +46,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         paginationContainer.innerHTML = paginationHTML;
     }
+    const searchForm = document.getElementById('search-form-category');
+    const searchInput = document.getElementById('search-input-category');
+    if(searchForm){
+        searchForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const term = searchInput.value.trim();
+            if(term) window.location.href = `category.html?search=${encodeURIComponent(term)}`;
+        });
+    }
 });
