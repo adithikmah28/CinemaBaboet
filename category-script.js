@@ -1,6 +1,10 @@
+// GABUNGKAN SEMUA DATA MENJADI SATU
+const allContent = [...movieData, ...seriesData, ...indonesiaData, ...animeData];
+
 document.addEventListener('DOMContentLoaded', () => {
+    // --- FUNGSI UNTUK MEMBUAT KARTU POSTER ---
     const createPosterCard = (content) => {
-        const streamPage = content.category === 'series' ? 'series_stream.html' : 'stream.html';
+        const streamPage = content.category === 'series' || content.category === 'anime' ? 'series_stream.html' : 'stream.html';
         const qualityClass = content.quality.toLowerCase();
         return `
             <a href="${streamPage}?id=${content.id}" class="poster-link">
@@ -13,6 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
             </a>
         `;
     };
+    
+    // --- LOGIKA UTAMA HALAMAN KATEGORI ---
     const pageTitle = document.getElementById('page-title');
     const posterGrid = document.getElementById('poster-grid');
     const paginationContainer = document.getElementById('pagination-container');
@@ -22,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentPage = parseInt(urlParams.get('page')) || 1;
     const itemsPerPage = 20;
     let filteredContent = [], pageHeader = '';
+    
     if (category) {
         pageHeader = `Kategori: ${category.charAt(0).toUpperCase() + category.slice(1)}`;
         filteredContent = allContent.filter(item => item.category === category);
@@ -30,13 +37,16 @@ document.addEventListener('DOMContentLoaded', () => {
         filteredContent = allContent.filter(item => item.title.toLowerCase().includes(searchQuery.toLowerCase()));
     }
     pageTitle.textContent = pageHeader;
+
     const totalPages = Math.ceil(filteredContent.length / itemsPerPage);
     const paginatedItems = filteredContent.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+    
     if (paginatedItems.length > 0) {
         posterGrid.innerHTML = paginatedItems.map(createPosterCard).join('');
     } else {
         posterGrid.innerHTML = `<p class="no-results">Tidak ada hasil yang cocok ditemukan.</p>`;
     }
+
     if (totalPages > 1) {
         let paginationHTML = '';
         for (let i = 1; i <= totalPages; i++) {
@@ -46,6 +56,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         paginationContainer.innerHTML = paginationHTML;
     }
+    
+    // Aktifkan form pencarian
     const searchForm = document.getElementById('search-form-category');
     const searchInput = document.getElementById('search-input-category');
     if(searchForm){
