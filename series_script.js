@@ -1,4 +1,4 @@
-// series_script.js (FIXED - DENGAN PENGECEKAN KEAMANAN)
+// series_script.js (THE REAL FINAL BOSS FIXED VERSION)
 document.addEventListener('DOMContentLoaded', () => {
     // GABUNGKAN SEMUA DATA MENJADI SATU
     const allContent = [...movieData, ...seriesData, ...indonesiaData, ...animeData];
@@ -27,6 +27,9 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const renderSeriesPage = (data) => {
+        // =================================================================
+        // THE REAL FIX: Tambahkan pengecekan keamanan untuk setiap data
+        // =================================================================
         streamContainer.innerHTML = `
             <div id="content-wrapper">
                 <div class="stream-content-area">
@@ -38,17 +41,17 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div class="episode-selector" id="episode-selector"></div>
                     </div>
                     <div class="info-container">
-                        <h1 class="movie-title">${data.title}</h1>
+                        <h1 class="movie-title">${data.title || 'Judul Tidak Tersedia'}</h1>
                         <div class="genre-tags">
-                            ${data.genre.map(g => `<span class="tag genre">${g}</span>`).join('')}
+                            ${(data.genre && Array.isArray(data.genre)) ? data.genre.map(g => `<span class="tag genre">${g}</span>`).join('') : ''}
                         </div>
                         <article class="synopsis">
                             <h2>Sinopsis</h2>
-                            <p>${data.synopsis}</p>
+                            <p>${data.synopsis || 'Sinopsis tidak tersedia.'}</p>
                         </article>
                         <div class="credits">
-                            <p><strong>Sutradara:</strong> ${data.director}</p>
-                            <p><strong>Pemeran:</strong> ${data.cast.join(', ')}</p>
+                            <p><strong>Sutradara:</strong> ${data.director || 'N/A'}</p>
+                            <p><strong>Pemeran:</strong> ${(data.cast && Array.isArray(data.cast)) ? data.cast.join(', ') : 'N/A'}</p>
                         </div>
                     </div>
                 </div>
@@ -59,18 +62,13 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const setupSelectors = (seasons) => {
-        // =================================================================
-        // THE REAL FIX: Tambahkan pengecekan ini untuk mencegah crash
-        // =================================================================
         if (!seasons || seasons.length === 0) {
             const episodeNav = document.querySelector('.episode-navigation');
             if (episodeNav) episodeNav.innerHTML = '<p>Data episode belum tersedia.</p>';
-            // Set video player ke sumber kosong agar tidak error
             const videoPlayer = document.getElementById('video-player');
             if(videoPlayer) videoPlayer.src = '';
-            return; // Hentikan fungsi jika tidak ada season
+            return;
         }
-        // =================================================================
 
         const seasonSelector = document.getElementById('season-selector');
         const episodeSelector = document.getElementById('episode-selector');
@@ -80,15 +78,16 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const renderEpisodes = (seasonIndex) => {
             const episodes = seasons[seasonIndex].episodes;
+            if (!episodes || episodes.length === 0) {
+                episodeSelector.innerHTML = '<p>Episode untuk season ini belum tersedia.</p>';
+                videoPlayer.src = '';
+                return;
+            }
             episodeSelector.innerHTML = episodes.map((ep, i) => `<button class="episode-box ${i === 0 ? 'active' : ''}" data-episode-index="${i}">${ep.episode_number}</button>`).join('');
             
-            // Set video player ke episode pertama dari season ini
             if (episodes.length > 0) {
                 videoPlayer.src = episodes[0].iframeSrc;
-            } else {
-                videoPlayer.src = ''; // Kosongkan jika tidak ada episode
             }
-
             addEpisodeClickListeners(seasonIndex);
         };
 
@@ -111,7 +110,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Render episode untuk season pertama saat halaman dimuat
         renderEpisodes(0);
     };
 
