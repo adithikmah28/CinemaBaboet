@@ -12,7 +12,6 @@ ul { list-style: none; }
 /* ======================================= */
 header { position: sticky; top: 0; z-index: 1000; background-color: var(--dark-color); display: flex; justify-content: space-between; align-items: center; padding: 20px 50px; transition: background-color 0.3s; }
 .header-left, .header-right { display: flex; align-items: center; }
-.menu-icon { font-size: 1.5rem; cursor: pointer; margin-right: 25px; display: none; }
 .brand-title { color: var(--primary-color); font-weight: 700; font-size: 2rem; letter-spacing: -1px; }
 .main-nav { margin-left: 40px; }
 .main-nav ul { display: flex; }
@@ -23,62 +22,40 @@ header { position: sticky; top: 0; z-index: 1000; background-color: var(--dark-c
 .search-bar input { background: rgba(0,0,0,0.2); border: 1px solid #333; border-radius: 4px; padding: 8px 15px 8px 35px; color: var(--light-color); width: 250px; font-family: 'Poppins', sans-serif; transition: all 0.3s; }
 .search-bar input::placeholder { color: var(--gray-color); }
 .search-bar input:focus { outline: none; background: rgba(0,0,0,0.5); border-color: var(--primary-color); }
-.search-icon { position: absolute; left: 12px; color: var(--light-color); }
+.search-btn-icon { background: none; border: none; color: var(--light-color); font-size: 1rem; cursor: pointer; padding-right: 10px; }
 
 /* ======================================= */
-/* 3. MOBILE NAVIGATION & OVERLAY          */
-/* ======================================= */
-#overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.7); z-index: 1500; opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s; pointer-events: none; }
-#overlay.show { opacity: 1; visibility: visible; pointer-events: auto; }
-.mobile-nav { position: fixed; top: 0; left: 0; width: 280px; height: 100%; background-color: var(--dark-color); z-index: 2000; transform: translateX(-100%); transition: transform 0.3s ease-in-out; padding: 20px; }
-.mobile-nav.show { transform: translateX(0); }
-.mobile-nav-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; }
-.mobile-nav-header .brand-title { font-size: 1.5rem; }
-.close-icon { font-size: 1.5rem; cursor: pointer; }
-.mobile-nav ul li { margin-bottom: 25px; }
-.mobile-nav ul li a { font-size: 1.2rem; }
-
-/* ======================================= */
-/* 4. MAIN CONTENT & CATEGORY ROWS         */
+/* 3. MAIN CONTENT & CATEGORY ROWS         */
 /* ======================================= */
 .main-content.no-hero { padding: 40px 50px; }
-.category-row { margin-bottom: 40px; position: relative; }
+.category-row { margin-bottom: 40px; }
 .category-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
 .category-row h2 { font-size: 1.4rem; }
-.scroll-arrows { opacity: 0; transition: opacity 0.3s; pointer-events: none; }
-.category-row:hover .scroll-arrows { opacity: 1; pointer-events: auto; }
-.scroll-arrow { font-size: 1.5rem; cursor: pointer; color: var(--light-color); background-color: rgba(20,20,20,0.7); padding: 5px; border-radius: 50%; }
-.scroll-arrow.left { margin-right: 10px; }
+.view-all-link { color: var(--gray-color); text-decoration: none; font-weight: 500; font-size: 0.9rem; transition: color 0.3s; }
+.view-all-link:hover { color: var(--light-color); }
+.view-all-link i { font-size: 0.7rem; margin-left: 5px; }
 .poster-container { display: flex; overflow-y: hidden; overflow-x: auto; padding-bottom: 20px; scroll-behavior: smooth; }
 .poster-container::-webkit-scrollbar { display: none; }
 .poster-container { -ms-overflow-style: none; scrollbar-width: none; }
 
 /* ======================================= */
-/* 5. POSTER CARD (ULTIMATE VERSION)       */
+/* 4. POSTER CARD (JUDUL DI BAWAH)         */
 /* ======================================= */
-.poster-link { display: block; margin-right: 10px; flex-shrink: 0; }
-.poster-card { position: relative; width: 160px; height: 240px; border-radius: 4px; overflow: hidden; background-color: #222; cursor: pointer; transition: transform 0.3s ease, z-index 0.3s ease; }
+.poster-link { display: flex; flex-direction: column; margin-right: 15px; flex-shrink: 0; width: 160px; }
+.poster-card { position: relative; width: 100%; height: 240px; border-radius: 4px; overflow: hidden; background-color: #222; cursor: pointer; transition: transform 0.3s ease; margin-bottom: 10px; }
 .poster-card img { width: 100%; height: 100%; object-fit: cover; }
-.poster-link:hover .poster-card { transform: scale(1.1); z-index: 20; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-
-/* TAGS: RATING & KUALITAS */
+.poster-link:hover .poster-card { transform: scale(1.05); }
+.poster-title { font-size: 0.9rem; font-weight: 500; line-height: 1.4; height: 40px; overflow: hidden; color: #e5e5e5; }
 .poster-badge { position: absolute; top: 8px; padding: 4px 8px; font-size: 0.75rem; font-weight: 600; border-radius: 4px; color: #fff; text-shadow: 1px 1px 2px rgba(0,0,0,0.7); }
 .rating-badge { left: 8px; background: rgba(0,0,0,0.6); display: flex; align-items: center; }
 .rating-badge .fa-star { color: #f5c518; margin-right: 4px; font-size: 0.7rem; }
 .quality-badge { right: 8px; }
-.quality-badge.hd { background-color: #28a745; } /* Hijau */
-.quality-badge.sd { background-color: #17a2b8; } /* Biru Muda */
-.quality-badge.cam { background-color: #dc3545; } /* Merah */
-
-/* Overlay saat hover */
-.poster-card .overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,1) 20%, transparent); padding: 15px; opacity: 0; transition: opacity 0.3s ease; display: flex; flex-direction: column; justify-content: flex-end; height: 60%; }
-.poster-link:hover .overlay { opacity: 1; }
-.overlay h3 { font-size: 1rem; margin-bottom: 5px; color: #fff; }
-.overlay .play-icon { position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); font-size: 3rem; opacity: 0; transition: opacity 0.3s; color: #fff; }
-.poster-link:hover .play-icon { opacity: 1; }
+.quality-badge.hd { background-color: #28a745; }
+.quality-badge.sd { background-color: #17a2b8; }
+.quality-badge.cam { background-color: #dc3545; }
 
 /* ======================================= */
-/* 6. STREAM PAGE                          */
+/* 5. STREAM & SERIES PAGES                */
 /* ======================================= */
 .stream-page-body { background-color: #000; }
 .stream-header { background: transparent; position: absolute; top: 0; left: 0; width: 100%; z-index: 100; }
@@ -89,154 +66,60 @@ header { position: sticky; top: 0; z-index: 1000; background-color: var(--dark-c
 .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 .info-container { padding: 0; }
 .movie-title { font-size: 2.5rem; font-weight: 700; margin-bottom: 15px; }
-.meta-tags { display: flex; gap: 15px; margin-bottom: 25px; flex-wrap: wrap; }
-.meta-tags .tag { background-color: rgba(51, 51, 51, 0.8); padding: 5px 12px; border-radius: 15px; font-size: 0.9rem; font-weight: 500; }
-.synopsis h2 { font-size: 1.4rem; margin-bottom: 10px; border-left: 4px solid var(--primary-color); padding-left: 10px; }
+.synopsis { margin-bottom: 25px; }
 .synopsis p { line-height: 1.7; color: #ccc; }
-.credits { color: #ccc; line-height: 1.8; }
-.credits strong { color: var(--light-color); }
+.episode-navigation { background-color: rgba(20, 20, 20, 0.8); border-radius: 8px; padding: 15px; margin-bottom: 30px; }
+.season-selector { display: flex; flex-wrap: wrap; gap: 10px; padding-bottom: 15px; margin-bottom: 15px; border-bottom: 1px solid #444; }
+.season-btn { background-color: #333; border: 1px solid #555; color: var(--light-color); padding: 8px 15px; border-radius: 20px; cursor: pointer; font-weight: 600; transition: all 0.3s; }
+.season-btn:hover { background-color: #555; }
+.season-btn.active { background-color: var(--primary-color); border-color: var(--primary-color); color: #fff; }
+.episode-selector { display: flex; flex-wrap: wrap; gap: 10px; }
+.episode-box { background-color: #444; border: none; color: var(--light-color); width: 45px; height: 45px; display: flex; justify-content: center; align-items: center; border-radius: 4px; cursor: pointer; font-size: 1rem; font-weight: 500; transition: all 0.3s; }
+.episode-box:hover { background-color: #666; }
+.episode-box.active { background-color: var(--light-color); color: var(--dark-color); font-weight: 700; }
 .loading-state, .error-state { position: relative; z-index: 5; display: flex; flex-direction: column; justify-content: center; align-items: center; height: calc(100vh - 100px); text-align: center; padding: 20px; }
 
 /* ======================================= */
-/* 7. FOOTER                               */
+/* 6. CATEGORY PAGE & PAGINATION           */
 /* ======================================= */
-footer { text-align: center; padding: 30px 50px; margin-top: 50px; border-top: 1px solid #333; color: var(--gray-color); }
-
-/* ======================================= */
-/* 8. RESPONSIVE DESIGN (MEDIA QUERIES)    */
-/* ======================================= */
-@media (max-width: 768px) {
-    header, .main-content.no-hero { padding-left: 20px; padding-right: 20px; }
-    .main-nav, .scroll-arrows { display: none; }
-    .menu-icon { display: block; }
-    .brand-title { font-size: 1.5rem; }
-    .search-bar input { width: 150px; }
-    .category-row h2 { font-size: 1.2rem; }
-    .poster-card { width: 130px; height: 195px; }
-    .stream-content-area { padding: 0 20px; }
-    .movie-title { font-size: 1.8rem; }
-}
-/* ======================================= */
-/* 9. CATEGORY PAGE & PAGINATION STYLES    */
-/* ======================================= */
-.search-btn-icon { background: none; border: none; color: var(--light-color); font-size: 1rem; cursor: pointer; padding-right: 10px; }
 .back-to-home { font-size: 1.5rem; margin-right: 20px; color: var(--light-color); }
-
 .main-content.category-page { padding: 40px 50px; }
 .page-title { font-size: 1.8rem; margin-bottom: 30px; }
-.poster-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 20px;
-}
+.poster-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 30px 20px; }
 .no-results { font-size: 1.2rem; color: var(--gray-color); text-align: center; grid-column: 1 / -1; }
-.view-all-link { color: var(--gray-color); text-decoration: none; font-weight: 500; font-size: 0.9rem; transition: color 0.3s; }
-.view-all-link:hover { color: var(--light-color); }
-.view-all-link i { font-size: 0.7rem; margin-left: 5px; }
-
-.pagination-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 50px;
-    gap: 10px;
-}
-.page-btn {
-    color: var(--light-color);
-    background-color: #333;
-    border: 1px solid #555;
-    padding: 10px 15px;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s;
-}
+.pagination-container { display: flex; justify-content: center; align-items: center; margin-top: 50px; gap: 10px; }
+.page-btn { color: var(--light-color); background-color: #333; border: 1px solid #555; padding: 10px 15px; border-radius: 4px; text-decoration: none; font-weight: 600; transition: all 0.3s; }
 .page-btn:hover { background-color: #555; }
-.page-btn.active {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-    cursor: default;
-}
-/* Penyesuaian responsive untuk grid */
+.page-btn.active { background-color: var(--primary-color); border-color: var(--primary-color); cursor: default; }
+
+/* ======================================= */
+/* 7. MODAL & CONTENT LOCK (AD-LOCK)       */
+/* ======================================= */
+.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); z-index: 1500; opacity: 0; visibility: hidden; transition: opacity 0.3s; }
+.modal-overlay.show { opacity: 1; visibility: visible; }
+.modal-container { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.9); z-index: 1600; background: #252525; border-radius: 8px; width: 90%; max-width: 450px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); opacity: 0; visibility: hidden; transition: all 0.3s ease; }
+.modal-container.show { transform: translate(-50%, -50%) scale(1); opacity: 1; visibility: visible; }
+.modal-content { padding: 30px; text-align: center; position: relative; }
+.modal-content h3 { font-size: 1.5rem; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; gap: 10px; }
+.modal-content p { color: #ccc; margin-bottom: 25px; line-height: 1.6; }
+.modal-content small { display: block; margin-top: 15px; font-size: 0.8rem; color: #888; }
+.ad-link-button { display: block; background-color: var(--primary-color); color: #fff; padding: 15px; border-radius: 5px; font-size: 1.1rem; font-weight: 600; text-decoration: none; transition: transform 0.2s; }
+.ad-link-button:hover { transform: scale(1.03); }
+.content-locked { filter: blur(8px); -webkit-filter: blur(8px); pointer-events: none; user-select: none; transition: filter 0.3s ease; }
+
+/* ======================================= */
+/* 8. FOOTER & RESPONSIVE                  */
+/* ======================================= */
+footer { text-align: center; padding: 30px 50px; margin-top: 50px; border-top: 1px solid #333; color: var(--gray-color); }
 @media (max-width: 768px) {
+    header, .main-content.no-hero, .main-content.category-page { padding-left: 20px; padding-right: 20px; }
+    .main-nav { display: none; }
+    .brand-title { font-size: 1.5rem; }
+    .search-bar input { width: 150px; }
+    .poster-link { width: 130px; }
+    .poster-card { height: 195px; }
     .poster-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
-    .main-content.category-page { padding: 30px 20px; }
-    .page-title { font-size: 1.5rem; }
-}
-/* ======================================= */
-/* 10. SERIES STREAMING PAGE STYLES        */
-/* ======================================= */
-
-.episode-navigation {
-    background-color: rgba(20, 20, 20, 0.8);
-    border-radius: 8px;
-    padding: 15px;
-    margin-bottom: 30px;
-}
-
-.season-selector {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    padding-bottom: 15px;
-    margin-bottom: 15px;
-    border-bottom: 1px solid #444;
-}
-
-.season-btn {
-    background-color: #333;
-    border: 1px solid #555;
-    color: var(--light-color);
-    padding: 8px 15px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: all 0.3s;
-}
-.season-btn:hover {
-    background-color: #555;
-}
-.season-btn.active {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-    color: #fff;
-}
-
-.episode-selector {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.episode-box {
-    background-color: #444;
-    border: none;
-    color: var(--light-color);
-    width: 45px;
-    height: 45px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: 500;
-    transition: all 0.3s;
-}
-.episode-box:hover {
-    background-color: #666;
-}
-.episode-box.active {
-    background-color: var(--light-color);
-    color: var(--dark-color);
-    font-weight: 700;
-}
-
-/* Penyesuaian responsive */
-@media (max-width: 768px) {
-    .episode-box {
-        width: 40px;
-        height: 40px;
-        font-size: 0.9rem;
-    }
+    .stream-content-area, .main-content.category-page { padding: 30px 20px; }
+    .movie-title { font-size: 1.8rem; }
+    .episode-box { width: 40px; height: 40px; font-size: 0.9rem; }
 }
